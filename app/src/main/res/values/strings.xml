@@ -1,0 +1,308 @@
+<resources>
+    <string name="app_name">Learn ASP.Net</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="BasicTutoriale">
+        <string-array name="array_technology">
+            <item>Android</item>
+            <item>Java</item>
+            <item>Php</item>
+            <item>Hadoop</item>
+            <item>Sap</item>
+            <item>Python</item>
+            <item>Ajax</item>
+            <item>C++</item>
+            <item>Ruby</item>
+            <item>Rails</item>
+            <item>.Net</item>
+            <item>Perl</item>
+        </string-array>
+    </string>
+    <string name="intro1">
+        "
+ASP.NET is a web development platform, which provides a programming model, a comprehensive software infrastructure and various services required to build up robust web applications for PC, as well as mobile devices.
+
+ASP.NET works on top of the HTTP protocol, and uses the HTTP commands and policies to set a browser-to-server bilateral communication and cooperation.
+
+ASP.NET is a part of Microsoft .Net platform. ASP.NET applications are compiled codes, written using the extensible and reusable components or objects present in .Net framework. These codes can use the entire hierarchy of classes in .Net framework.
+
+The ASP.NET application codes can be written in any of the following languages:
+
+C#
+Visual Basic.Net
+Jscript
+J#
+ASP.NET is used to produce interactive, data-driven web applications over the internet. It consists of a large number of controls such as text boxes, buttons, and labels for assembling, configuring, and manipulating code to create HTML pages.
+
+ASP.NET Web Forms Model
+ASP.NET web forms extend the event-driven model of interaction to the web applications. The browser submits a web form to the web server and the server returns a full markup page or HTML page in response.
+
+All client side user activities are forwarded to the server for stateful processing. The server processes the output of the client actions and triggers the reactions.
+
+Now, HTTP is a stateless protocol. ASP.NET framework helps in storing the information regarding the state of the application, which consists of:
+
+Page state
+Session state
+The page state is the state of the client, i.e., the content of various input fields in the web form. The session state is the collective information obtained from various pages the user visited and worked with, i.e., the overall session state. To clear the concept, let us take an example of a shopping cart.
+
+User adds items to a shopping cart. Items are selected from a page, say the items page, and the total collected items and price are shown on a different page, say the cart page. Only HTTP cannot keep track of all the information coming from various pages. ASP.NET session state and server side infrastructure keeps track of the information collected globally over a session.
+
+The ASP.NET runtime carries the page state to and from the server across page requests while generating ASP.NET runtime codes, and incorporates the state of the server side components in hidden fields.
+
+This way, the server becomes aware of the overall application state and operates in a two-tiered connected way.
+
+The ASP.NET Component Model
+The ASP.NET component model provides various building blocks of ASP.NET pages. Basically it is an object model, which describes:
+
+Server side counterparts of almost all HTML elements or tags, such as form and input.
+
+Server controls, which help in developing complex user-interface. For example, the Calendar control or the Gridview control.
+
+ASP.NET is a technology, which works on the .Net framework that contains all web-related functionalities. The .Net framework is made of an object-oriented hierarchy. An ASP.NET web application is made of pages. When a user requests an ASP.NET page, the IIS delegates the processing of the page to the ASP.NET runtime system.
+
+The ASP.NET runtime transforms the .aspx page into an instance of a class, which inherits from the base class page of the .Net framework. Therefore, each ASP.NET page is an object and all its components i.e., the server-side controls are also objects.
+    "
+    </string>
+    <string name="intro2">
+    "
+ASP.NET life cycle specifies, how:
+
+ASP.NET processes pages to produce dynamic output
+The application and its pages are instantiated and processed
+ASP.NET compiles the pages dynamically
+The ASP.NET life cycle could be divided into two groups:
+
+Application Life Cycle
+Page Life Cycle
+ASP.NET Application Life Cycle
+The application life cycle has the following stages:
+
+User makes a request for accessing application resource, a page. Browser sends this request to the web server.
+
+A unified pipeline receives the first request and the following events take place:
+
+An object of the class ApplicationManager is created.
+
+An object of the class HostingEnvironment is created to provide information regarding the resources.
+
+Top level items in the application are compiled.
+
+Response objects are created. The application objects such as HttpContext, HttpRequest and HttpResponse are created and initialized.
+
+An instance of the HttpApplication object is created and assigned to the request.
+
+The request is processed by the HttpApplication class. Different events are raised by this class for processing the request.
+
+ASP.NET Page Life Cycle
+When a page is requested, it is loaded into the server memory, processed, and sent to the browser. Then it is unloaded from the memory. At each of these steps, methods and events are available, which could be overridden according to the need of the application. In other words, you can write your own code to override the default code.
+
+The Page class creates a hierarchical tree of all the controls on the page. All the components on the page, except the directives, are part of this control tree. You can see the control tree by adding trace= "true" to the page directive. We will cover page directives and tracing under 'directives' and 'event handling'.
+
+The page life cycle phases are:
+
+Initialization
+Instantiation of the controls on the page
+Restoration and maintenance of the state
+Execution of the event handler codes
+Page rendering
+Understanding the page cycle helps in writing codes for making some specific thing happen at any stage of the page life cycle. It also helps in writing custom controls and initializing them at right time, populate their properties with view-state data and run control behavior code.
+
+Following are the different stages of an ASP.NET page:
+
+Page request - When ASP.NET gets a page request, it decides whether to parse and compile the page, or there would be a cached version of the page; accordingly the response is sent.
+
+Starting of page life cycle - At this stage, the Request and Response objects are set. If the request is an old request or post back, the IsPostBack property of the page is set to true. The UICulture property of the page is also set.
+
+Page initialization - At this stage, the controls on the page are assigned unique ID by setting the UniqueID property and the themes are applied. For a new request, postback data is loaded and the control properties are restored to the view-state values.
+
+Page load - At this stage, control properties are set using the view state and control state values.
+
+Validation - Validate method of the validation control is called and on its successful execution, the IsValid property of the page is set to true.
+
+Postback event handling - If the request is a postback (old request), the related event handler is invoked.
+
+Page rendering - At this stage, view state for the page and all controls are saved. The page calls the Render method for each control and the output of rendering is written to the OutputStream class of the Response property of page.
+
+Unload - The rendered page is sent to the client and page properties, such as Response and Request, are unloaded and all cleanup done.
+
+ASP.NET Page Life Cycle Events
+At each stage of the page life cycle, the page raises some events, which could be coded. An event handler is basically a function or subroutine, bound to the event, using declarative attributes such as Onclick or handle.
+
+Following are the page life cycle events:
+
+PreInit - PreInit is the first event in page life cycle. It checks the IsPostBack property and determines whether the page is a postback. It sets the themes and master pages, creates dynamic controls, and gets and sets profile property values. This event can be handled by overloading the OnPreInit method or creating a Page_PreInit handler.
+
+Init - Init event initializes the control property and the control tree is built. This event can be handled by overloading the OnInit method or creating a Page_Init handler.
+
+InitComplete - InitComplete event allows tracking of view state. All the controls turn on view-state tracking.
+
+LoadViewState - LoadViewState event allows loading view state information into the controls.
+
+LoadPostData - During this phase, the contents of all the input fields are defined with the form tag are processed.
+
+PreLoad - PreLoad occurs before the post back data is loaded in the controls. This event can be handled by overloading the OnPreLoad method or creating a Page_PreLoad handler.
+
+Load - The Load event is raised for the page first and then recursively for all child controls. The controls in the control tree are created. This event can be handled by overloading the OnLoad method or creating a Page_Load handler.
+
+LoadComplete - The loading process is completed, control event handlers are run, and page validation takes place. This event can be handled by overloading the OnLoadComplete method or creating a Page_LoadComplete handler
+
+PreRender - The PreRender event occurs just before the output is rendered. By handling this event, pages and controls can perform any updates before the output is rendered.
+
+PreRenderComplete - As the PreRender event is recursively fired for all child controls, this event ensures the completion of the pre-rendering phase.
+
+SaveStateComplete - State of control on the page is saved. Personalization, control state and view state information is saved. The HTML markup is generated. This stage can be handled by overriding the Render method or creating a Page_Render handler.
+
+UnLoad - The UnLoad phase is the last phase of the page life cycle. It raises the UnLoad event for all controls recursively and lastly for the page itself. Final cleanup is done and all resources and references, such as database connections, are freed. This event can be handled by modifying the OnUnLoad method or creating a Page_UnLoad handler.
+    "
+</string>
+
+    <string name="intro3">
+
+        "
+        Introduction
+Use the Button control to create a push button on the Web page that lets users to post a page to the server. The control triggers an event in server code that you can handle to respond to the postback. It can also raise an event in client script that you can handle before the page is posted or that can run and then cancel submission of the page.
+
+ Note
+
+ASP.NET includes several kinds of button controls, each of which appears differently on Web pages. They are the Button control, which renders as a push button; the LinkButton control, which renders as a link; and the ImageButton control, which renders as an image; and the ImageMap control, which lets you create a graphic that has hotspots that users can click. By default, all button controls submit the page when clicked. You can also use the HtmlButton and HtmlInputButton controls to create buttons on the page that are programmable in server code. For details about the differences between HTML and Web server controls, see ASP.NET Web Server Controls Overview.
+
+By default, a Button control is a Submit button. A Submit button does not have a command name (specified by the CommandName property) associated with the button and simply posts the Web page back to the server. You can provide an event handler for the Click event to programmatically control the actions performed when the Submit button is clicked.
+
+A Command button has a command name associated with the button, such as Sort, by setting the CommandName property. This allows you to create multiple Button controls on a Web page and programmatically determine which Button control is clicked. You can also use the CommandArgument property with a command button to provide additional information about the command to perform, such as Ascending. You can provide an event handler for the Command event to programmatically control the actions performed when the Command button is clicked.
+
+
+Button Postback Behavior and Server Events
+When a user clicks any Web server control button, the page is sent to the server. This causes the Web page to be processed and any pending events to be raised in server-based code. When all page and control processing has finished, the page renders itself to the browser again.
+
+The buttons can raise their own Click events or Command event, which you can handle by using server-based code. This is different than events in traditional HTML pages or in client-based Web applications, where a button's onclick event is handled by using JavaScript that runs in the client. For more information, see ASP.NET Web Forms Server Control Event Model.
+
+When users click a button control, the page is posted back to the server. By default, the page is posted back to itself,
+
+You can configure buttons to post the current page to another page. This can be useful for creating multi-page forms. For details, see Cross-Page Posting in ASP.NET Web Forms.
+
+
+Handling Button Events in Client Script
+Button controls can raise both server events and client events. Server events occur after postback, and they are handled in the server-side code that you write for the page. Client events are handled in client script, typically ECMAScript (JavaScript), and are raised before the page is submitted. By adding client-side events to ASP.NET button controls, you can perform tasks such as displaying confirmation dialog boxes before submitting the page, and potentially cancel the submission. For details, see Client Script in ASP.NET Web Pages and How to: Respond to Button Web Server Control Events in Client Script.
+
+You might also want the Button control to also use client script to perform the postback (instead of simply performing an HTTP POST operation). This can be useful if you want to programmatically manipulate the postback, such as attaching it to other elements on the page. You can set the Button control's UseSubmitBehavior property to true to cause the Button control to use client-script based postback.
+
+
+Button Controls and Validation
+If a page contains ASP.NET validator controls, by default, clicking a button control causes the validator control to perform its check. If client-side validation is enabled for a validator control, the page is not submitted if a validation check has failed.
+        "
+    </string>
+    <string name="intro4">
+        "
+        You may save a lot of coding by maintaining the ViewState of the objects in your Web Form.
+
+Maintaining the ViewState
+When a form is submitted in classic ASP, all form values are cleared. Suppose you have submitted a form with a lot of information and the server comes back with an error. You will have to go back to the form and correct the information. You click the back button, and what happens.......ALL form values are CLEARED, and you will have to start all over again! The site did not maintain your ViewState.
+
+When a form is submitted in ASP .NET, the form reappears in the browser window together with all form values. How come? This is because ASP .NET maintains your ViewState.
+ Maintaining the ViewState is the default setting for ASP.NET Web Forms. If you want to NOT maintain the ViewState, include the directive %@ Page EnableViewState="false" %> at the top of an .aspx page or add the attribute EnableViewState="false" to any control.
+        "
+    </string>
+    <string name="intro5">
+
+
+        "
+            A simple ASP.NET page looks just like an ordinary HTML page.
+
+Hello W3Schools
+To start learning ASP.NET, we will construct a very simple HTML page that will display "Hello W3Schools" in an Internet browser like this:
+        "
+
+        "
+        How Does it Work?
+Fundamentally an ASP.NET page is just the same as an HTML page.
+
+An HTML page has the extension .htm. If a browser requests an HTML page from the server, the server sends the page to the browser without any modifications.
+
+An ASP.NET page has the extension .aspx. If a browser requests an ASP.NET page, the server processes any executable code in the page, before the result is sent back to the browser.
+
+The ASP.NET page above does not contain any executable code, so nothing is executed. In the next examples we will add some executable code to the page to demonstrate the difference between static HTML pages and dynamic ASP pages.
+
+Classic ASP
+Active Server Pages (ASP) has been around for several years. With ASP, executable code can be placed inside HTML pages.
+
+Previous versions of ASP (before ASP .NET) are often called Classic ASP.
+
+ASP.NET is not fully compatible with Classic ASP, but most Classic ASP pages will work fine as ASP.NET pages, with only minor changes.
+
+If you want to learn more about Classic ASP, please visit our ASP Tutorial.
+        "
+
+    </string>
+
+    <string name="ad_1">"
+
+        Arjun Bhatt
+        ASP.NET has two controls that allow users to upload files to the web server. Once the server receives the posted file data, the application can save it, check it, or ignore it. The following controls allow the file uploading:
+
+HtmlInputFile - an HTML server control
+
+FileUpload - and ASP.NET web control
+
+Both controls allow file uploading, but the FileUpload control automatically sets the encoding of the form, whereas the HtmlInputFile does not do so.
+
+In this tutorial, we use the FileUpload control. The FileUpload control allows the user to browse for and select the file to be uploaded, providing a browse button and a text box for entering the filename.
+
+Once, the user has entered the filename in the text box by typing the name or browsing, the SaveAs method of the FileUpload control can be called to save the file to the disk.
+
+The basic syntax of FileUpload is:
+
+ asp : FileUpload ID= "Uploader" runat = "server"
+The FileUpload class is derived from the WebControl class, and inherits all its members. Apart from those, the FileUpload class has the following read-only properties:
+
+Properties	Description
+FileBytes	Returns an array of the bytes in a file to be uploaded.
+FileContent	Returns the stream object pointing to the file to be uploaded.
+FileName	Returns the name of the file to be uploaded.
+HasFile	Specifies whether the control has a file to upload.
+PostedFile	Returns a reference to the uploaded file.
+The posted file is encapsulated in an object of type HttpPostedFile, which could be accessed through the PostedFile property of the FileUpload class.
+
+The HttpPostedFile class has the following frequently used properties:
+
+Properties	Description
+ContentLength	Returns the size of the uploaded file in bytes.
+ContentType	Returns the MIME type of the uploaded file.
+FileName	Returns the full filename.
+InputStream	Returns a stream object pointing to the uploaded file.
+Example
+The following example demonstrates the FileUpload control and its properties. The form has a FileUpload control along with a save button and a label control for displaying the file name, file type, and file length."</string>
+
+
+    <string name="asp_1.1">"Model View Controller (MVC)
+MVC is a design pattern used to decouple user-interface (view), data (model), and application logic (controller). This pattern helps to achieve separation of concerns.
+
+Using the MVC pattern for websites, requests are routed to a Controller that is responsible for working with the Model to perform actions and/or retrieve data. The Controller chooses the View to display and provides it with the Model. The View renders the final page, based on the data in the Model."</string>
+
+    <string name="asp_1.2">"Models and data
+Create clean model classes and easily bind them to your database. Declaratively define validation rules, using C# attributes, which are applied on the client and server.
+
+ASP.NET supports many database engines including SQLite, SQL Server, MySQL, PostgreSQL, DB2 and more, as well as non-relational stores such as MongoDB, Redis, and Azure Cosmos DB.
+
+    Controllers
+Simply route requests to controller actions, implemented as normal C# methods. Data from the request path, query string, and request body are automatically bound to method parameters.
+
+
+    Views with Razor
+The Razor syntax provides a simple, clean, and lightweight way to render HTML content based on your view. Razor lets you render a page using C#, producing fully HTML5 compliant web pages.
+    "</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
+</resources>
+

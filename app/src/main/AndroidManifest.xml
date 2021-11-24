@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="arjun.mca.learnaspnet">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/screen_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/screen_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LearnASPNet">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.LearnASPNet.NoActionBar"></activity>
+        <activity android:name=".Admin" />
+        <activity android:name=".Signup" />
+        <activity android:name=".Login" />
+        <activity android:name=".Asp_a1" />
+        <activity android:name=".Advance_a" />
+        <activity android:name=".Basic_b1" />
+        <activity android:name=".ListData" />
+        <activity android:name=".Material" />
+        <activity android:name=".InterviewQustions" />
+        <activity android:name=".AspWithMVC" />
+        <activity android:name=".Aspvalidation" />
+        <activity android:name=".AdvancedTutorial" />
+        <activity android:name=".BasicTutorial" />
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
